@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Start Quiz</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="login-page"> <!-- 🔥 इथे class add केली -->
+
+<div class="container">
+  <h2>Start Quiz</h2>
+
+  <input type="text" id="name" placeholder="Enter Name"><br><br>
+  <input type="number" id="age" placeholder="Enter Age"><br><br>
+  
+<select id="level">
+  <option value="easy">Easy</option>
+  <option value="medium" id="medium">Medium 🔒</option>
+  <option value="hard" id="hard">Hard 🔒</option>
+</select>
+  <button onclick="startQuiz()">Start Quiz</button>
+
+  <p id="error" style="color:red;"></p>
+</div>
+
+<script>
+function startQuiz() {
+  let name = document.getElementById("name").value;
+  let age = document.getElementById("age").value;
+
+  if(name === "" || age === "") {
+    document.getElementById("error").innerText = "Please fill all fields!";
+    return;
+  }
+
+  localStorage.setItem("name", name);
+  localStorage.setItem("age", age);
+
+  window.location.href = "quiz.html";
+}
+</script>
+
+</body>
+</html>
